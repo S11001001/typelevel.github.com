@@ -6,6 +6,7 @@ meta:
   nav: blog
   author: S11001001
   pygments: true
+  mathjax: true
 ---
 
 When are two methods alike?
@@ -26,25 +27,20 @@ existential—but there are other pairs of method types I want to
 explore that are the same, or very close.  So let’s talk about how we
 determine this equivalence.
 
-A method *r* is more general than or as general as *q* if *q* may be
-implemented by only making a call to *r*, passing along the arguments.
-By more general, we mean *r* can be invoked in all the situations that
-*q* can be invoked in, and more besides.  Let us call the result of
-this test *r* <:*<sub><small>m</small></sub>* *q* (where
-<:*<sub><small>m</small></sub>* is pronounced “party duck”); if the
-test of *q* making a call to  *r* fails, then
-¬(*r* <:*<sub><small>m</small></sub>* *q*).
+A method *R* is more general than or as general as *Q* if *Q* may be
+implemented by only making a call to *R*, passing along the arguments.
+By more general, we mean *R* can be invoked in all the situations that
+*Q* can be invoked in, and more besides.  Let us call the result of
+this test $R <:\_m Q$ (where $<:\_m$ is pronounced “party duck”); if
+the test of *Q* making a call to *R* fails, then $\neg(R <:\_m Q$).
 
-If *q* <:*<sub><small>m</small></sub>* *r* and
-*r* <:*<sub><small>m</small></sub>* *q*, then the two method types are
+If $Q <:\_m R$ and $R <:\_m Q$, then the two method types are
 *equivalent*; that is, neither has more expressive power than the
 other, since each can be implemented merely by invoking the other and
-doing nothing else.  We write this as
-*q* ≡*<sub><small>m</small></sub>* *r*.  Likewise, if
-*r* <:*<sub><small>m</small></sub>* *q* and
-¬(*q* <:*<sub><small>m</small></sub>* *r*), that is, *q* can be
-written by calling *r*, but not vice versa, then *r* is *strictly more
-general* than *q*, or *r* <*<sub><small>m</small></sub>* *q*.
+doing nothing else.  We write this as $Q ≡\_m R$.  Likewise, if
+$R <:\_m Q$ and $\neg(Q <:\_m R$), that is, *Q* can be written by
+calling *R*, but not vice versa, then *R* is *strictly more general*
+than *Q*, or $R <\_m Q$.
 
 What the concrete method—the one actually doing stuff, not invoking
 the other one—does is irrelevant, for the purposes of this test,
