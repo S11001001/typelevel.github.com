@@ -158,6 +158,7 @@ condition satisfied by either `PList[PList[_]]` or its equivalent
 `PList[MList]`.
 
 <div class="side-note">
+
   The reason you can’t invoke `plenLength` from `plenLengthTP` is
   complicated, even for this article.  In short, `plenLength` demands
   evidence that, *supposing* `PList` had a method taking an argument
@@ -173,6 +174,7 @@ condition satisfied by either `PList[PList[_]]` or its equivalent
   repeating the above substitution for `PList`, and thinking about the
   meaning of the resulting `def lookAt(x: PList[E] forSome {type E}):
   Unit`.
+
 </div>
 
 Let’s examine the meaning of the type
