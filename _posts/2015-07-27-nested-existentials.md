@@ -159,21 +159,21 @@ condition satisfied by either `PList[PList[_]]` or its equivalent
 
 <div class="side-note">
 
-  The reason you can’t invoke `plenLength` from `plenLengthTP` is
-  complicated, even for this article.  In short, `plenLength` demands
-  evidence that, *supposing* `PList` had a method taking an argument
-  of the element type, e.g. `def lookAt(x: T): Unit`, it could do
-  things like `xss.lookAt(PList("hi", PNil()))`.  In `plenLengthTP`,
-  this hypothetical method could only be invoked with empty lists, or
-  lists gotten by inspecting `xss` itself.
+The reason you can’t invoke `plenLength` from `plenLengthTP` is
+complicated, even for this article.  In short, `plenLength` demands
+evidence that, *supposing* `PList` had a method taking an argument of
+the element type, e.g. `def lookAt(x: T): Unit`, it could do things
+like `xss.lookAt(PList("hi", PNil()))`.  In `plenLengthTP`, this
+hypothetical method could only be invoked with empty lists, or lists
+gotten by inspecting `xss` itself.
 
-  That no such method exists is irrelevant for the purposes of this
-  reasoning; we have written the definition of `PList` in a way that
-  scalac assumes that such a method may exist.  You can determine the
-  consequences yourself by adding the `lookAt` method to `PList`,
-  repeating the above substitution for `PList`, and thinking about the
-  meaning of the resulting `def lookAt(x: PList[E] forSome {type E}):
-  Unit`.
+That no such method exists is irrelevant for the purposes of this
+reasoning; we have written the definition of `PList` in a way that
+scalac assumes that such a method may exist.  You can determine the
+consequences yourself by adding the `lookAt` method to `PList`,
+repeating the above substitution for `PList`, and thinking about the
+meaning of the resulting `def lookAt(x: PList[E] forSome {type E}):
+Unit`.
 
 </div>
 
